@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/terminal_hacker.unity
+    guid: 62a42d32f1bb12f49a6b6c9480d7174c
   m_configObjects: {}

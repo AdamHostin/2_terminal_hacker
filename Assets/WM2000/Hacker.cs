@@ -148,6 +148,15 @@ public class Hacker : MonoBehaviour
                 Level = int.Parse(InputInMainMenu);
                 PrepareGuessingScreen();
                 break;
+            case "exit":
+            case "EXIT":
+            case "Exit":
+            case "Quit":
+            case "quit":
+            case "QUIT":
+                Terminal.WriteLine("If on a browser close the tab");
+                Application.Quit();
+                break;
             case "007":
                 ShowMainMenuScreen("Welcome back Mr. Bond");
                 break;
