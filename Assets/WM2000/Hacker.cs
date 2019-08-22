@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text.RegularExpressions;
+
 
 public class Hacker : MonoBehaviour
 {
@@ -68,30 +70,30 @@ public class Hacker : MonoBehaviour
 
      void WinInputHandler(string InputInWin)
     {
-        switch (InputInWin)
-        {
-            case "menu":
-            case "Menu":
-            case "MENU":
-                ShowMainMenuScreen("Welcome back");
-                break;
-            default:
-                break;
-        }
+        if (Regex.IsMatch(InputInWin, "menu", RegexOptions.IgnoreCase)) ShowMainMenuScreen("Welcome back");
     }
 
      void GuessingInputHandler(string InputInGuessing)
     {
-        switch (InputInGuessing)
+        
+        if (Regex.IsMatch(InputInGuessing, "menu", RegexOptions.IgnoreCase)) ShowMainMenuScreen("Welcome back");
+        else
         {
-            case "menu":
-            case "Menu":
-            case "MENU":
-                ShowMainMenuScreen("Welcome back");
-                break;
-            default:
-                Terminal.WriteLine("Access denied");
-                break;
+            switch (Level)
+            {
+                case 1:
+                    if (InputInGuessing == "Burger") ShowWinScreen();
+
+                    else Terminal.WriteLine("Access denied");
+                    
+                    break;
+                case 2:
+                    if (InputInGuessing == "Technology") ShowWinScreen();
+
+                    else Terminal.WriteLine("Access denied");
+
+                    break;
+            }
         }
     }
 
