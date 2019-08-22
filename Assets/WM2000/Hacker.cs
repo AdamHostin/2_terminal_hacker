@@ -72,13 +72,13 @@ public class Hacker : MonoBehaviour
 
      void WinInputHandler(string InputInWin)
     {
-        if (Regex.IsMatch(InputInWin, "menu", RegexOptions.IgnoreCase)) ShowMainMenuScreen("Welcome back");
+        if (Regex.IsMatch(InputInWin, "^menu$", RegexOptions.IgnoreCase)) ShowMainMenuScreen("Welcome back");
     }
 
      void GuessingInputHandler(string InputInGuessing)
     {
 
-        if (Regex.IsMatch(InputInGuessing, "menu", RegexOptions.IgnoreCase)) ShowMainMenuScreen("Welcome back");
+        if (Regex.IsMatch(InputInGuessing, "^menu$", RegexOptions.IgnoreCase)) ShowMainMenuScreen("Welcome back");
 
         else if (InputInGuessing == Password) ShowWinScreen();
 
