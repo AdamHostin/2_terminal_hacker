@@ -12,6 +12,7 @@ public class Hacker : MonoBehaviour
     int Level=0;
     enum screen {MainMenu,Guessing,Win };
     screen CurrentScreen = screen.MainMenu;
+    string Password ="";
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +37,10 @@ public class Hacker : MonoBehaviour
 
         Terminal.ClearScreen();
         Terminal.WriteLine("You selected level " + Level);
-        Terminal.WriteLine("Enter password:");
+        Terminal.WriteLine("Enter Password:");
 
     }
+
     void ShowWinScreen()
     {
         CurrentScreen = screen.Win;
@@ -75,26 +77,12 @@ public class Hacker : MonoBehaviour
 
      void GuessingInputHandler(string InputInGuessing)
     {
-        
+
         if (Regex.IsMatch(InputInGuessing, "menu", RegexOptions.IgnoreCase)) ShowMainMenuScreen("Welcome back");
-        else
-        {
-            switch (Level)
-            {
-                case 1:
-                    if (InputInGuessing == "Burger") ShowWinScreen();
 
-                    else Terminal.WriteLine("Access denied");
-                    
-                    break;
-                case 2:
-                    if (InputInGuessing == "Technology") ShowWinScreen();
+        else if (InputInGuessing == Password) ShowWinScreen();
 
-                    else Terminal.WriteLine("Access denied");
-
-                    break;
-            }
-        }
+        else Terminal.WriteLine("Access denied");
     }
 
      void MainMenuInputHandler(string InputInMainMenu)
@@ -102,8 +90,14 @@ public class Hacker : MonoBehaviour
        switch (InputInMainMenu)
         {
             case "1":
+                Password = "Burger";
+                goto case "3";
             case "2":
+                Password = "Playstatiion";
+                goto case "3";
             case "3":
+                if (Password == "") Password = "Maniac";
+
                 Int32.TryParse(InputInMainMenu, out Level);
                 ShowGuessingScreen();
                 break;
