@@ -41,7 +41,7 @@ public class Hacker : MonoBehaviour
         CurrentScreen = screen.Guessing;
 
         Terminal.ClearScreen();
-        Terminal.WriteLine("You can get back menu any time         by tiping: menu");
+        Terminal.WriteLine("You can get back to menu any time\nby tiping: menu");
         Terminal.WriteLine("Your hint is: " + Password.Anagram());
         Terminal.WriteLine("Enter Password:");
 
