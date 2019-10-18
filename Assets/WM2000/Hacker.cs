@@ -15,7 +15,7 @@ public class Hacker : MonoBehaviour
     //Game passwords
     string[,] LevelPasswords = {{"Burger", "Cheese", "Beef", "Nugets", "Wrap"},
     {"Playstation", "Ratchet", "Spider-man", "Dualshock", "Entertainment"},
-    {"President", "Independence", "weapon", "Government", "Diplomacy"} };
+    {"President", "Independence", "Weapon", "Government", "Diplomacy"} };
     const int RowDimension = 1;
     // Start is called before the first frame update
 
